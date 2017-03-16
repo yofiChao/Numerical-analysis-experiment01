@@ -97,9 +97,6 @@ double piecewiseInterpolation(int n, double x)
 		  + (yArray[mid + 1] - yArray[mid])
 		  / (xArray[mid + 1] - xArray[mid])
 	      * (x - xArray[mid]);
-	// int temp = sum * 10000000;	//cf
-	// if(temp % 10 > 4)
-	// 	sum += 0.000001;
 	return sum;
 }
 
@@ -123,6 +120,7 @@ double newtonInterpolation(int n, double x)
             fun[j][j + i] = (fun[j + 1][j + i] - fun[j][j + i - 1]) / (xArray[j + i] - xArray[j]);
         }
     }
+
     sum = yArray[0];
     for(int i = 1; i <= n; i++)
     {
@@ -132,6 +130,7 @@ double newtonInterpolation(int n, double x)
         }
         sum = sum + temp * fun[0][i];
     }
+    
     return sum;
 }
 
